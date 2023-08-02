@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>FastFood</title>
+    <style>
+        #main-frame
+        {
+            border:1px solid black;
+            height: 700px;
+            width:100%;
+            background-color: black;
+            position:relative;
+        }
+        #title
+        {
+            border: 1px solid white;
+            height: 50px;
+            width:98%;
+            position: absolute;
+            left:10px;
+            top:10px;
+            text-align: center;
+            position: relative;
+        }
+        #title h1
+        {
+            color: white;
+            position: absolute;
+            top:-8px;
+            left: 40%;
+        }
+        body
+        {
+            position: relative;
+        }
+        #fmv
+        {
+            border: 1px solid white;
+            height: 500px;
+            width: 350px;
+            position: absolute;
+            top:30px;
+            left:20px;
+            color: white;
+            position: relative;
+        }
+        input[type=number]{
+            width: 60px;
+            position: absolute;
+            left:200px;
+        }
+        body
+        {
+            position: relative;
+        }
+        #dessert
+        {
+            border: 1px solid white;
+            height: 300px;
+            width:450px;
+            position: absolute;
+            color: white;
+            left: 390px;
+            top:80px;
+        }
+        body
+        {
+            position: relative;
+        }
+        #payment
+        {
+            border: 1px solid white;
+            height: 280px;
+            width: 500px;
+            position: absolute;
+            left:400px;
+            top:400px;
+            color: white;
+        }
+        body
+        {
+            position: relative;
+        }
+        #ds
+        {
+            border: 1px solid white;
+            height: 500px;
+            width: 300px;
+            color: white;
+            position: absolute;
+            left:930px;
+            top:80px;
+        }
+        body
+        {
+            position: relative;
+        }
+        #notification
+        {
+            position: absolute;
+            left: 1250px;
+            top:80px;
+            border: 1px solid white;
+            height: 500px;
+            color:green;
+            width: 270px;
+            
+        }
+        #notification img
+        {
+            position: absolute;
+            top:100px;
+            left:50px;
+        }
+        #tax
+        {
+            position: absolute;
+            left:300px;
+            top:90px;
+        }
+        #ch
+        {
+            
+            position: absolute;
+            left:300px;
+            top:70px;
+        }
+        #st
+        {
+            position: absolute;
+            left:300px;
+            top:110px;
+        }
+        #to
+        {
+            position: absolute;
+            left:300px;
+            top:140px;
+        }
+        @keyframes shake
+        {
+            from
+            {
+                transform: translateX(4px);
+                border-color: red;
+            }
+            to
+            {
+                transform: translateX(-4px);
+                border-color: white;
+            }
+        }
+        #print
+        {
+            position: absolute;
+            left:200px;
+            top:220px;
+        }
+        #print a
+        {
+            text-decoration: none;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        #menu a
+        {
+            position: absolute;
+            left:1px;
+            top:710px;
+            animation: blink;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            height: 30px;
+            width: 70px;
+            border-radius: 10px;
+        }
+        @keyframes blink
+        {
+            from 
+            {
+                background-color: black;
+                color: white;
+            }
+            to 
+            {
+                background-color: black;
+                color: black;
+            }
+        }
+        #menu1
+        {
+            position: absolute;
+            left:130px;
+            top:700px;
+            font-weight: bold;
+            animation: left;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        #menu1 i
+        {
+            font-weight: bold;
+            font-size: 30px;
+            top:10px;
+        }
+        @keyframes left 
+        {
+            0%
+            {
+                transform: translateX(10px);
+                color: green;
+            }
+            99%
+            {
+                transform: translateX(-10px);
+                color: brown;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main-frame">
+        <div id="title">
+            <h1>Fast Food Restaurent</h1>
+        </div>
+        <button type="button" id="menu"><a href="menu.html">Menu</a></button>
+        <div id="menu1"><i class="bi bi-arrow-left"></i>Open the menu card</div>
+        <div id="fmv">
+            <h3>Fast Meal and Vegetarian</h3>
+            <input type="checkbox" id="f" class="v" value="Fries" name="v" onchange="verify()">Fries
+            <input type="number" id="f1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="s" class="v" value="Salad" name="v" onchange="verify()">Salad
+            <input type="number" id="s1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="h" class="v" value="HamBurger" name="v" onchange="verify()">HamBurger
+            <input type="number" id="h1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="o" class="v" value="Onion Rings" name="v" onchange="verify()">Onion Rings
+            <input type="number" id="o1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="c" class="v" name="v" value="Chicken Salad" onchange="verify()">Chicken Salad
+            <input type="number" id="c1" class="c" name="w" disabled><br><br>
+            <h3>Sandwhich</h3>
+            <input type="checkbox" id="fi" name="v" onchange="verify()" value="FishSandwhich">FishSandwhich
+            <input type="number" id="fi1" name="w" disabled><br><br>
+            <input type="checkbox" id="cx" name="v" onchange="verify()" value="CheeseSandwhich">CheeseSandwhich
+            <input type="number" id="cx1" name="w" disabled><br><br>
+            <input type="checkbox" id="cc" name="v" onchange="verify()" value="ChickenSandwhich">ChickenSandwhich
+            <input type="number" id="cc1" name="w" disabled><br><br>
+        </div>
+        <div id="dessert">
+            <h3>Desserts</h3>
+            <input type="checkbox" id="hb" class="v" name="v" onchange="verify()" value="Hash Brown">Hash Brown
+            <input type="number" id="hb1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="tb" class="v" name="v" onchange="verify()" value="Toasted Bagel">Toasted Bagel
+            <input type="number" id="tb1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="ps" class="v" name="v" onchange="verify()" value="Pineapple Stick">Pineapple Stick
+            <input type="number" id="ps1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="cm" class="v" name="v" onchange="verify()" value="Chocolate Muffin">Chocolate Muffin
+            <input type="number" id="cm1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="pa" class="v" name="v" onchange="verify()" value="Pancakes-Syrup">Pancakes-Syrup
+            <input type="number" id="pa1" class="c" name="w" disabled><br><br>
+        </div>
+        <div id="payment">
+            <h3>Payment Method</h3>
+            <select id="cashtype" onchange="yes()">
+                <option disable selected>---payment---</option>
+                <option>Cash</option>
+                <option>DebitCard</option>
+                <option>Credit Card</option>
+            </select><input type="number" id="ava" disabled><br>
+               
+                    Change<p id="ch" style="color:green"></p><br>
+                    Tax <p id="tax" style="color:red"></p><br>
+                    Sub Total <p id="st" style="color:red"></p><br>
+                    Total <p id="to" style="color:red"></p><br>
+                
+                <div id="buttons">
+                    <button type="button" onclick="total()" class="btn btn-outline-success">Total</button>
+                    <button type="button" onclick="reset()" class="btn btn-outline-danger">Reset</button>
+                    <button type="button" onclick="exit()" class="btn btn-outline-warning">Exit</button><br>
+                    <button type="button" onclick="print()" id="print" class="btn btn-outline-light"><a href="print.html">Print Receipt</a></button>
+                </div>
+        </div>
+        <div id="ds">
+            <h3>Drinks</h3>
+            <input type="checkbox" id="i" class="v" name="v" onchange="verify()" value="Tea">Tea
+            <input type="number" id="i1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="j" class="v" name="v" onchange="verify()" value="Cola">Cola
+            <input type="number" id="j1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="k" class="v" name="v" onchange="verify()" value="Coffee">Coffee
+            <input type="number" id="k1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="l" class="v" name="v" onchange="verify()" value="Orange">Orange
+            <input type="number" id="l1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="m" class="v" name="v" onchange="verify()" value="Water">Water
+            <input type="number" id="m1" class="c" name="w" disabled><br><br>
+            <h3>Shakes</h3>
+            <input type="checkbox" id="n" class="v" name="v" onchange="verify()" value="Vanilla Cone">Vanilla Cone
+            <input type="number" id="n1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="p" class="v" name="v" onchange="verify()" value="Vanilla Shake">Vanilla Shake
+            <input type="number" id="p1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="q" class="v" name="v" onchange="verify()" value="Strawberry Shake">Strawberry Shake
+            <input type="number" id="q1" class="c" name="w" disabled><br><br>
+            <input type="checkbox" id="r" class="v" name="v" onchange="verify()" value="Chocolate Milk Shake">Chocolate Milk Shake
+            <input type="number" id="r1" class="c" name="w" disabled><br><br>
+        </div>
+        <p id="notification">
+            your notification will appear here......
+            <img src="https://www.pngmart.com/files/21/White-3D-Figure-Man-PNG.png" height="200px" id="not" width="200px">
+        </p>
+        </div>
+    <script>
+        let fr=document.getElementById("f");
+        let fr1=document.getElementById("f1");
+        let a=document.getElementById("s");
+        let a1=document.getElementById("s1");
+        let b=document.getElementById("h");
+        let b1=document.getElementById("h1");
+        let c=document.getElementById("o");
+        let c1=document.getElementById("o1");
+        let d=document.getElementById("c");
+        let ig=document.getElementById("not");
+        let d1=document.getElementById("c1");
+        let e=document.getElementById("fi");
+        let e1=document.getElementById("fi1");
+        let f=document.getElementById("cx");
+        let f1=document.getElementById("cx1");
+        let g=document.getElementById("cc");
+        let g1=document.getElementById("cc1");
+        let h=document.getElementById("hb");
+        let h1=document.getElementById("hb1");
+        let i=document.getElementById("tb");
+        let i1=document.getElementById("tb1");
+        let j=document.getElementById("ps");
+        let j1=document.getElementById("ps1");
+        let k=document.getElementById("cm");
+        let k1=document.getElementById("cm1");
+        let l=document.getElementById("pa");
+        let l1=document.getElementById("pa1");
+        let m=document.getElementById("i");
+        let m1=document.getElementById("i1");
+        let n=document.getElementById("j");
+        let n1=document.getElementById("j1");
+        let o=document.getElementById("k");
+        let o1=document.getElementById("k1");
+        let p=document.getElementById("l");
+        let p1=document.getElementById("l1");
+        let q=document.getElementById("m");
+        let q1=document.getElementById("m1");
+        let r=document.getElementById("n");
+        let r1=document.getElementById("n1");
+        let s=document.getElementById("p");
+        let s1=document.getElementById("p1");
+        let t=document.getElementById("q");
+        let t1=document.getElementById("q1");
+        let u=document.getElementById("r");
+        let u1=document.getElementById("r1");
+        function verify()
+        {
+            console.log("verify method");
+        if(fr.checked==true)
+        fr1.disabled=false;
+        if(fr.checked==false)
+        fr1.disabled=true;
+        
+        if(a.checked==true)
+        a1.disabled=false;
+        if(a.checked==false)
+        a1.disabled=true;
+        //HamBurger h,h1 
+        
+        if(b.checked==true)
+        b1.disabled=false;
+        if(b.checked==false)
+        b1.disabled=true;
+        //Onion Rings o,o1
+        
+        if(c.checked==true)
+        c1.disabled=false;
+        if(c.checked==false)
+        c1.disabled=true;
+        //Chicken Salad c,c1
+        
+        if(d.checked==true)
+        d1.disabled=false;
+        if(d.checked==false)
+        d1.disabled=true;
+        //FishSandwhich fi,fi1
+        
+        if(e.checked==true)
+        e1.disabled=false;
+        if(e.checked==false)
+        e1.disabled=true;
+        //CheeseSandwhich cx,cx1
+        
+        if(f.checked==true)
+        f1.disabled=false;
+        if(f.checked==false)
+        f1.disabled=true;
+        //ChickenSandwhich cc,cc1
+        
+        if(g.checked==true)
+        g1.disabled=false;
+        if(g.checked==false)
+        g1.disabled=true;
+        //Hash Brown hb,hb1
+        
+        if(h.checked==true)
+        h1.disabled=false;
+        if(h.checked==false)
+        h1.disabled=true;
+        //Toasted Bagel tb,tb1
+        
+        if(i.checked==true)
+        i1.disabled=false;
+        if(i.checked==false)
+        i1.disabled=true;
+        //Pineapple Stick ps,ps1
+        
+        if(j.checked==true)
+        j1.disabled=false;
+        if(j.checked==false)
+        j1.disabled=true;
+        //Chocolate Muffin cm,sm1
+        
+        if(k.checked==true)
+        k1.disabled=false;
+        if(k.checked==false)
+        k1.disabled=true;
+        //Pancakes-Syrup pa,pa1
+        
+        if(l.checked==true)
+        l1.disabled=false;
+        if(l.checked==false)
+        l1.disabled=true;
+        //tea i,i1
+        
+        if(m.checked==true)
+        m1.disabled=false;
+        if(m.checked==false)
+        m1.disabled=true;
+        //Cola j,j1
+        
+        if(n.checked==true)
+        n1.disabled=false;
+        if(n.checked==false)
+        n1.disabled=true;
+        //Coffee k,k1
+        
+        if(o.checked==true)
+        o1.disabled=false;
+        if(o.checked==false)
+        o1.disabled=true;
+        //Orange l,l1
+        
+        if(p.checked==true)
+        p1.disabled=false;
+        if(p.checked==false)
+        p1.disabled=true;
+        //Bottle Water m,m1
+        
+        if(q.checked==true)
+        q1.disabled=false;
+        if(q.checked==false)
+        q1.disabled=true;
+        //Vanilla Cone n,n1
+        
+        if(r.checked==true)
+        r1.disabled=false;
+        if(r.checked==false)
+        r1.disabled=true;
+        //Vanilla Shake p,p1
+        
+        if(s.checked==true)
+        s1.disabled=false;
+        if(s.checked==false)
+        s1.disabled=true;
+        //Strawberry Shake q,q1
+        
+        if(t.checked==true)
+        t1.disabled=false;
+        if(t.checked==false)
+        t1.disabled=true;
+        //Chocolate Milk Shake r,r1
+        
+        if(u.checked==true)
+        u1.disabled=false;
+        if(u.checked==false)
+        u1.disabled=true;
+        }
+        let msg=document.getElementById("notification");
+        let chan=document.getElementById("ch");
+        let ta=document.getElementById("tax");
+        let st=document.getElementById("st");
+        let tota=document.getElementById("to");
+        let cash;
+        console.log(cash);
+        function yes()
+        {
+            cash=document.getElementById("cashtype").value;
+            //console.log(cash);
+            console.log("yes func");
+            if(cash=="Cash")
+               {
+                console.log(cash);
+            document.getElementById("ava").disabled=false;
+               }
+            else if(cash=="DebitCard")
+            {
+                console.log("debit card");
+                document.getElementById("ava").value=2000;
+                document.getElementById("ava").disabled=true;
+            }
+            else if(cash=="Credit Card")
+            {
+                console.log("credit card");
+                document.getElementById("ava").value=5000;
+                document.getElementById("ava").disabled=true;
+            }
+        }
+        let tot=0;
+        function total()
+        {
+            tot=((fr1.value*250)+(a1.value*200)+(b1.value*120)+(c1.value*50)+(d1.value*200)+(e1.value*230)+(f1.value*250)+(g1.value*150)+(h1.value*200)+(i1.value*180)+(j1.value*150)+(k1.value*180)+(l1.value*220)+(m1.value*50)+(n1.value*80)+(o1.value*60)+(p1.value*30)+(q1.value*20)+(r1.value*50)+(s1.value*90)+(t1.value*120)+(u1.value*150));
+            console.log(tot);
+            a=document.getElementById("ava").value;
+            if(a=='')
+            {
+            msg.innerHTML="Enter available amount";
+           // msg.classList.add("shaked");
+           msg.style.position='absolute';
+            msg.style.color="red";
+            msg.style.animation="shake 0.5s infinite";
+            ig.src="https://thumbs.dreamstime.com/z/3d-man-vector-illustration-leaning-red-cross-24599866.jpg";
+            }
+            else if(tot>a)
+            {
+                msg.innerHTML="Insuffiecient Funds.......";
+                msg.style.position='absolute';
+            msg.style.animation="shake 0.5s infinite"
+                msg.style.color="red";
+            }
+            else
+            {
+                let taxx=2.90;
+                  let x=document.getElementById("tax")                     /*=taxx; */
+                  console.log(taxx);
+                   let y=document.getElementById("ch")                    /*=(a-tot); */
+                   
+                   let z=document.getElementById("st")                      /*=(tot);*/
+                   
+                  let xa= document.getElementById("to")                    /*=(tax+tot);*/
+                   x.innerHTML=taxx;
+                   y.innerHTML=(a-tot);
+                   z.innerHTML=tot;
+                   xa.innerHTML=(taxx+tot);
+                   console.log(x.value);
+                   console.log(y);
+                   console.log(z);
+                   console.log(xa);
+                   
+                   ig.src="https://www.nicepng.com/png/full/1005-10058739_3d-man-check-mark-with-transparent-background-thinker.png";
+
+            }
+        }
+        function reset()
+        {
+            location.reload();
+        }
+        function exit()
+        {
+            window.close();
+        }
+        /*function se()
+        {
+            let ch=document.querySelectorAll("input[type='checkbox']").value;
+            console.log(ch);
+        }*/
+        function print()
+        {
+            //localStorage.setItem("fries",fr1.value);
+            
+           /* if(fr.checked==true)
+            {
+                console.log("fries");
+                console.log(fr1.value);
+            }*/
+            let v=document.getElementsByName("v");
+            var selectedItems = "";
+            let w=document.getElementsByName("w");
+            var cost="";
+         for (var i = 0; i < v.length; i++) {
+            if (v[i].type == "checkbox" && v[i].checked == true){
+               selectedItems+=v[i].value+" ";
+               selectedItems+="<br>";
+               selectedItems+="<br>";
+               cost+=w[i].value+" ";
+               cost+="<br>";
+               cost+="<br>";
+            }
+            //alert(selectedItems);
+            
+            localStorage.setItem("val",selectedItems);
+            localStorage.setItem("cost",cost);
+            localStorage.setItem("total",tot);
+         }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>
