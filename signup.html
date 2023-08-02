@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <style>
+    body 
+    {
+       position: relative; 
+       background-color: skyblue;
+    }
+    #main-frame
+    {
+        position: absolute;
+        height: 500px;
+        border: 1px solid black;
+        width: 300px;
+        left:30%;
+        top:30px;
+        position: relative;
+        background-color: white;
+        border-radius: 30px;
+        box-shadow: 10px 10px 8px #888888;
+    }
+    #frame 
+    {
+        position: absolute;
+        top:100px;
+        left:10%;
+    }
+    input[type=email]
+    {
+        padding: 10px;
+        position: absolute;
+        border: none;
+        background-color: black;
+        color: white;
+        left:50%;
+    }
+    input[type=password]
+    {
+        padding: 10px;
+        position: absolute;
+        border: none;
+        background-color: black;
+        color: white;
+        left:50%;
+    }
+    input[type=submit]
+    {
+        padding: 10px;
+        position: absolute;
+        border: none;
+        background-color: black;
+        color: white;
+        left:50%;
+    }
+    h1 
+    {
+        position: absolute;
+        left:10px;
+    }
+    #sub:hover
+    {
+        background-color: blue;
+    }
+    h4
+    {
+        position: absolute;
+        top:330px;
+    }
+    a{
+        position: absolute;
+        top:350px;
+        left:200px;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div id="main-frame">
+        <h1>Sign Up</h1>
+        <div id="frame">
+            <form id="myform">
+            <input type="email" id="email" placeholder="Email"><br><br><br>
+            <input type="password" id="pass" placeholder="Enter Password"><br><br><br>
+            <input type="password" id="pass1" placeholder="Confirm Password"><br><br><br>
+            <input type="submit" value="submit" id="sub">
+            </form>
+        </div>
+        <h4>Already have an account?</h4>
+        <a href="login.html">login</a>
+    </div>
+</body>
+</html>
